@@ -46,6 +46,7 @@ function setBgGreet() {
         //background position bottom is a good alternitive to bring the trees up.
         document.body.style.backgroundPosition = "center";
         greeting.textContent = 'Good Morning';
+        document.body.style.textShadow = "-2px 0px white, 0px -2px white, 2px 0px white, 0px 2px white, -2px -2px white, -2px 2px white, 2px -2px white, 2px 2px white";
     } else if(hour < 18) {
         // Afternoon
         document.body.style.backgroundImage = "url('../media/afternoon.jpg')";
@@ -54,7 +55,7 @@ function setBgGreet() {
         greeting.textContent = 'Good Afternoon';
         document.body.style.color = "white";
         // Adding a text-shadow to essentually border the white text so it stands out
-        document.body.style.textShadow = "-2px 0 black, 0 2px black, 2px 0 black, 0 -2px black";
+        document.body.style.textShadow = "-2px 0px black, 0px -2px black, 2px 0px black, 0px 2px black, -2px -2px black, -2px 2px black, 2px -2px black, 2px 2px black";
     } else {
         // Evening
         document.body.style.backgroundImage = "url('../media/night.jpg')";
@@ -62,8 +63,12 @@ function setBgGreet() {
         document.body.style.backgroundPosition = "bottom";
         greeting.textContent = 'Good Evening';
         document.body.style.color = "white";
+        document.body.style.textShadow = "-2px 0px black, 0px -2px black, 2px 0px black, 0px 2px black, -2px -2px black, -2px 2px black, 2px -2px black, 2px 2px black";
 
     }
+
+    // making sure the greeting and background are checked on the hour so that it actually turns over to the new greeting and image on the marked time without refresh
+    setTimeout(setBgGreet, 1000 * 60 * 60)
 }
 
 // Get Name
@@ -78,7 +83,7 @@ function getName() {
 // Set Name
 function setName(e) {
     if(e.type === 'keypress') {
-        // Make sure enter in pressed (the enter key is 13 identifier)
+        // Make sure enter is pressed (the enter key is 13 identifier)
         if(e.which == 13 || e.keyCode == 13) {
             localStorage.setItem('name', e.target.innerText);
             // Keeps the enter key from moving to a new text line
