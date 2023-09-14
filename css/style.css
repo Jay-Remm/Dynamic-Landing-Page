@@ -41,6 +41,7 @@ h2 {
     height: 4rem;
     top: 0.75rem;
     right: 0.75rem;
+    text-shadow: none;
     margin-top: 0.5rem;
     margin-right: 0.5rem;
     cursor: pointer;
@@ -72,6 +73,12 @@ h2 {
 }
 
 .weather-full {
+    visibility: hidden;
+    position: absolute;
+}
+
+.weather-full.active {
+    visibility: visible;
     backdrop-filter: blur(5px);
     background-color: rgba(0, 0, 0, 0.75);
     color: white;
@@ -151,6 +158,148 @@ h2 {
     padding-left: 1rem;
 }
 /* thus endeth weather widget */
+
+/* starting my todo widget */
+.todowidget {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    bottom: 0.75rem;
+    right: 0.75rem;
+    font-size: 1.5rem;
+    width: 5rem;
+    height: 3rem;
+    margin-bottom: 0.5rem;
+    margin-right: 0.5rem;
+    cursor: pointer;
+}
+
+.todo-full {
+    visibility: hidden;
+    position: absolute;
+}
+
+.todo-full.active {
+    visibility: visible;
+    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+    text-shadow: none;
+    position: absolute;
+    display: flex;
+    flex-direction: column-reverse;
+    bottom: 4rem;
+    right: 0.75rem;
+    width: 20rem;
+    height: 18rem;
+    border-radius: 0.5rem;
+    /* border-top: 0.5rem solid transparent; */
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    margin-right: 0.5rem;
+    /* overflow-x: hidden;
+    overflow-y: auto; */
+}
+
+.todo-form {
+    position: absolute;
+    display: flex;
+}
+
+.todo-form-bar {
+    display: inline-flex;
+    width: 100%;
+    height: 2rem;
+}
+
+ .todo-input {
+    display: flex;
+    justify-content: flex-start;
+    border: none;
+    border-radius: 0.25rem 0 0 0.25rem;
+    width: 85%;
+    height: 2rem;
+    padding: 0 0.5rem;
+    font-size: 1.25rem;
+ }
+
+ .todo-input:focus {
+    outline: 2px solid black; 
+    z-index: 3;
+    border-radius: 0.25rem;
+ }
+
+ .todo-info {
+    background-color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 0.25rem 0.25rem 0;
+    width: 15%;
+ }
+
+ .todo-info-icon {
+    width: 1.25rem;
+ }
+
+ /* setting the ul inside a container so that when i use overflow-y on the list, the input stays static in the parent div. */
+ .todo-ul-container {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 100%;
+    height: 14.75rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin-bottom: 0.25rem;
+ }
+
+ .todo-ul-container::-webkit-scrollbar {    
+    width: 1.25rem;
+ }
+
+ .todo-ul-container::-webkit-scrollbar-track {    
+    background: transparent;
+    border-radius: 100vw;
+    margin-block: 0.25rem;
+ }
+
+ .todo-ul-container::-webkit-scrollbar-thumb {    
+    background: whitesmoke;
+    border: 0.25rem solid black;
+    border-radius: 100vw;
+ }
+
+ .todos {
+    background-color: transparent;
+    color: black;
+    padding: 0;
+    height: auto;
+    border-radius: 0.25rem;
+    list-style-type: none;
+ }
+
+ .todos li {
+    background-color: whitesmoke;
+    border-radius: 0.25rem;
+    
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+ }
+
+ .todos li:nth-child(n + 2) {
+    margin-top: 0.25rem;
+ }
+
+ .todos li.completed {
+    color: gray;
+    text-decoration: line-through;
+ }
+
 
 /* media quiries */
 @media(max-width: 700px) {

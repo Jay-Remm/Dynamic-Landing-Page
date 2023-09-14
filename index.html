@@ -7,16 +7,18 @@
     <title>New Tab</title>
 </head>
 <body>
-    <time id="time"></time>
-    <h1>
-        <span id="greeting"></span>
-        <span id="name" contenteditable="true"></span>
-    </h1>
+    <div class="main">
+        <time id="time"></time>
+        <h1>
+            <span id="greeting"></span>
+            <span id="name" contenteditable="true"></span>
+        </h1>
 
-    <h2>What Is Your Main Focus For Today</h2>
-    <h2 id="focus" contenteditable="true"></h2>
+        <h2>What Is Your Main Focus For Today</h2>
+        <h2 id="focus" contenteditable="true"></h2>
+    </div>
 
-    <div class="weatherwidget">
+    <div class="weatherwidget" tabindex="0">
         <div class="weather-data">
             <img src="/media/weather-icons/cloud-sun.svg" class="current-weather-icon" data-current-weather-icon>
             <div class="current-temp">
@@ -58,7 +60,25 @@
     </div>
 
     <div class="todowidget">
+        todo
+    </div>
+    <div class="todo-full">
+        <form id="todo-form">
+            <div class="todo-ul-container">
+                <ul class="todos" id="todos"></ul>
+            </div>
 
+            <div class="todo-form-bar">
+                <input type="text" class="todo-input" id="todo-input"
+                placeholder="What do you need to do?" 
+                autocomplete="off">
+                <div class="todo-info">
+                    <img src="/media/icons/info-circle.svg" class="todo-info-icon"
+                    title="Left click to toggle todo completed.
+                    Right click to delete todo.">
+                </div>
+            </div>
+        </form>
     </div>
 
     <script src="js/main.js"></script>
