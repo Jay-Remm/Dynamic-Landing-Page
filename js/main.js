@@ -141,7 +141,22 @@ weatherWidget.addEventListener('blur', () => {
 
 todoWidget.addEventListener('click', () => {
     todoFull.classList.toggle('active')
+    keepTodoFull()
 })
+
+function getTodoFull() {
+    if (localStorage.getItem('Show Todo Widget') === 'true') {
+        todoFull.classList.add('active')
+    }
+}
+
+function keepTodoFull() {
+    if (todoFull.classList.contains('active')) {
+        localStorage.setItem('Show Todo Widget', true)
+    } else {
+        localStorage.setItem('Show Todo Widget', false)
+    }
+}
 
 //Building the todo widget
 const todoForm = document.getElementById('todo-form')
@@ -151,8 +166,12 @@ const todoUL = document.getElementById('todos')
 // checking to see of items are in local storage
 const todos = JSON.parse(localStorage.getItem('todos'))
 
-if (todos) {
-    todos.forEach(todo => addTodo(todo))
+function getTodos() {
+    if (todos) {
+        todos.forEach(todo => addTodo(todo))
+
+    }
+    localStorage.setItem('todos', JSON.stringify(todos))
 }
 
 // adding todo items from the form to the UL
@@ -222,3 +241,5 @@ showTime();
 setBgGreet();
 getName();
 getFocus();
+getTodos();
+getTodoFull();
