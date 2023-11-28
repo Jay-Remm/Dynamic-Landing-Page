@@ -300,6 +300,25 @@ h2 {
     text-decoration: line-through;
  }
 
+ /* Starting the shortcuts Widget */
+ .shortcuts {
+    position: absolute;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    top: 0.75rem;
+    left: 0.75rem;
+    font-size: 1.5rem;
+    width: 5rem;
+    height: 3rem;
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+    cursor: pointer;
+}
+
+.google {
+    width: 1.5rem;
+}
 
 /* media quiries */
 @media(max-width: 700px) {

@@ -1,3 +1,5 @@
+import { handleLocationSubmit } from "./weather.js";
+
 // DOM Elements | by placing a comma we dont have to type const every time
 const time = document.getElementById('time'),
     greeting = document.getElementById('greeting'),
@@ -130,13 +132,21 @@ const todoWidget = document.querySelector('.todowidget')
 const todoFull = document.querySelector('.todo-full')
 
 weatherWidget.addEventListener('click', () => {
-    weatherFull.classList.toggle('active')
-    weatherFull.setFocus()
+    if (weatherFull.classList.contains('x')) {
+        weatherFull.classList.remove('x')
+    } else {
+        weatherFull.classList.add('active')
+        weatherFull.focus()
+    }
 })
 
 // the blur event was not working to remove the weatherFull div until i found that this issue was the weatherWidget div was considered as not 'keyboeard-focusable'. the easy fix to making it focusable and in turn making my blur call work was adding the tabindex="0" attribute onto the html div for my weatherWidget
-weatherWidget.addEventListener('blur', () => {
+weatherFull.addEventListener('blur', () => {
     weatherFull.classList.remove('active')
+    weatherFull.classList.add('x')
+    setTimeout(() => {
+        weatherFull.classList.remove('x')
+    }, 500)
 })
 
 todoWidget.addEventListener('click', () => {
@@ -221,7 +231,7 @@ function addTodo(todo) {
 
 // the following is to save the todo inputs to local storage
 function updateLS() {
-    todosEl = document.querySelectorAll('li')
+    let todosEl = document.querySelectorAll('li')
 
     const todos = []
 
@@ -235,6 +245,54 @@ function updateLS() {
     localStorage.setItem('todos', JSON.stringify(todos))
 }
 
+// Run weather API and plug data into widget
+
+// Setting the user inputed city and getting the most recent data from local storage on what city we are using
+const city = document.getElementById('city')
+
+// Get City
+function getCity() {
+    if (localStorage.getItem('city') === '') {
+        city.textContent = '[Enter City]';
+    } else {
+        city.textContent = localStorage.getItem('city');
+        handleLocationSubmit()
+    }
+}
+
+// Set City
+function setCity(e) {
+    if(e.type === 'keypress') {
+        // Make sure enter is pressed (the enter key is 13 identifier)
+        if(e.which == 13 || e.keyCode == 13) {
+            localStorage.setItem('city', e.target.innerText);
+            // Keeps the enter key from moving to a new text line
+            city.blur();
+        }
+    } else {
+        localStorage.setItem('city', e.target.innerText);
+    }
+}
+
+city.addEventListener('keypress', setCity);
+city.addEventListener('blur', setCity);
+city.addEventListener('focus', () => {
+    if (city.textContent === '[Enter City]') {
+        // highlight the text content when focused
+        // This might not be possible in simple code unless i switch the city span to an input in the html
+    }
+})
+
+// Handling my imported script from weather.js
+city.addEventListener('change', (e) => setLocation(e.target.value))
+city.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+        handleLocationSubmit()
+        weatherFull.focus()
+    }
+})
+
+
 
 // Run 
 showTime();
@@ -243,3 +301,4 @@ getName();
 getFocus();
 getTodos();
 getTodoFull();
+getCity();

@@ -20,20 +20,20 @@
 
     <div class="weatherwidget" tabindex="0">
         <div class="weather-data">
-            <img src="/media/weather-icons/cloud-sun.svg" class="current-weather-icon" data-current-weather-icon>
+            <img src="/media/weather-icons/cloud-sun.svg" class="current-weather-icon" data-weather-icon>
             <div class="current-temp">
-            <span data-current-temp>70</span>&deg;
+            <span data-current-temp>--</span>&deg;
             </div>
         </div>
         <div class="weather-label">
-            <span class="city" data-city>Charlotte</span>
+            <span class="city" id="city" contenteditable="true"></span>
         </div>
         </div>
     </div>
-    <div class="weather-full">
+    <div class="weather-full" tabindex="0">
         <div class="weather-header">
             <div class="city-full">
-                <span data-city>Charlotte</span>
+                <span data-city></span>
             </div>
             <div class="weather-status">
                 <span data-weather-status>Partly Cloudy</span>
@@ -41,20 +41,20 @@
         </div>
         <div class="weather-data-expanded">
             <div class="icon-and-temp">
-                <img src="/media/weather-icons/cloud-sun.svg" class="full-weather-icon" data-current-weather-icon="">
+                <img src="/media/weather-icons/cloud-sun.svg" class="full-weather-icon" data-weather-icon-big>
                 <div class="full-current-temp">
-                    <span data-current-temp>70</span>&deg;
+                    <span data-current-temp-big>--</span>&deg;
                 </div>
             </div>
             <div class="more-weather-data">
-                <div class="feels-like">Feels like: <span data-feels-like>78</span>&deg;</div>
-                <div class="precip">Precipitation: <span data-precip>2</span><small> in</small></div>
-                <div class="wind">Wind: <span data-wind>5</span><small> mph</small></div>
+                <div class="feels-like">Feels like: <span data-feels-like>--</span>&deg;</div>
+                <div class="humidity">Humidity: <span data-humidity>--</span><small>%</small></div>
+                <div class="wind">Wind: <span data-wind>--</span><small> mph</small></div>
             </div>
         </div>
         <div class="weather-footer">
             <div class="more-weather-link">
-                <a href="#">Link to more weather</a>
+                <a href="https://weather.com/">More weather</a>
             </div>
         </div>
     </div>
@@ -81,6 +81,12 @@
         </form>
     </div>
 
-    <script src="js/main.js"></script>
+    <div class="shortcuts">
+        <a href="chrome://new-tab-page">
+            <img class="google" src="/media/icons/google.svg" alt="Google logo">
+        </a>
+    </div>
+
+    <script type="module" src="js/main.js"></script>
 </body>
 </html>
