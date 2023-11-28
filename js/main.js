@@ -292,6 +292,10 @@ city.addEventListener('keydown', (e) => {
     }
 })
 
+setInterval(() => {
+    handleLocationSubmit()
+}, 1000 * 60 * 60)
+
 
 
 // Run 
