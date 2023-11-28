@@ -3,7 +3,7 @@ export const ICON_MAP = new Map()
 // map codes are from the openweathermap api documentation
 addMapping([800], 'sun')
 addMapping([801, 802], 'cloud-sun')
-addMapping([803, 804], 'cloud')
+addMapping([803, 804], 'clouds')
 addMapping([701, 711, 721, 731, 741, 751, 761, 762, 771, 781], 'cloud-haze')
 addMapping([300, 301, 302, 310, 311, 312, 313, 314, 321], 'cloud-rain')
 addMapping([500, 501, 502, 503, 504, 511, 520, 521, 522, 531], 'cloud-rain-heavy')
