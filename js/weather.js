@@ -75,7 +75,7 @@ function setValue(selector, value, { parent = document } = {}) {
 }
 
 function getIconUrl(iconCode) {
-    return `/media/weather-icons/${ICON_MAP.get(iconCode)}.svg`
+    return `media/weather-icons/${ICON_MAP.get(iconCode)}.svg`
   }
 
 const weatherIcon = document.querySelector('[data-weather-icon]')

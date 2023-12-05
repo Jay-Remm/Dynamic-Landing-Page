@@ -43,7 +43,7 @@ function setBgGreet() {
     // the document.body.style.attribute pushes css into the page based on the paramerters we give it.
     if(hour < 12) {
         // Morning
-        document.body.style.backgroundImage = "url('../media/morning.jpg')";
+        document.body.style.backgroundImage = "url('media/morning.jpg')";
         document.body.style.backgroundSize = "cover";
         //background position bottom is a good alternitive to bring the trees up.
         document.body.style.backgroundPosition = "center";
@@ -52,7 +52,7 @@ function setBgGreet() {
         document.body.style.textShadow = "-2px 0px white, 0px -2px white, 2px 0px white, 0px 2px white, -2px -2px white, -2px 2px white, 2px -2px white, 2px 2px white";
     } else if(hour < 18) {
         // Afternoon
-        document.body.style.backgroundImage = "url('../media/afternoon.jpg')";
+        document.body.style.backgroundImage = "url('media/afternoon.jpg')";
         document.body.style.backgroundSize = "cover";
         document.body.style.backgroundPosition = "center";
         greeting.textContent = 'Good Afternoon';
@@ -61,7 +61,7 @@ function setBgGreet() {
         document.body.style.textShadow = "-2px 0px black, 0px -2px black, 2px 0px black, 0px 2px black, -2px -2px black, -2px 2px black, 2px -2px black, 2px 2px black";
     } else {
         // Evening
-        document.body.style.backgroundImage = "url('../media/night.jpg')";
+        document.body.style.backgroundImage = "url('media/night.jpg')";
         document.body.style.backgroundSize = "cover";
         document.body.style.backgroundPosition = "bottom";
         greeting.textContent = 'Good Evening';
